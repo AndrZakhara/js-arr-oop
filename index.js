@@ -1,19 +1,23 @@
 class myArray {
   constructor() {
     this.arguments = arguments;
-  }
-    getProps() {
-      console.log(this.arguments);
-    }; 
-    
-    getLendth() {
-      console.log(this.arguments[3]);
+    console.log(this.arguments);
     }
+
+  getProps(index) {
+    console.log(this.arguments[3]);    
+  }; 
+  
+  getLength() {
+    let length = 0;
+
+    for(let key in this.arguments) {
+      length++; 
+    }      
+    console.log(`length: ${length}`);
+    return length;      
+  }
 };
 
-let arr = new myArray(1, 4, [2, 4], { name: 'Ivan' });
-
-arr.getProps();
-arr.getLendth();
-
-console.log(arr);
+const arr = new myArray(1, 4, [2, 4], { name: 'Ivan' });
+arr.getLength();
