@@ -1,7 +1,10 @@
 class myArray {
   constructor() {
+    for(let i = 0; i < this.length; i++) {
+      this.i = this.arguments[i];
+    };
+
     this.arguments = arguments;
-    // console.log(this.arguments);
     this.length = this.getLength();
     }
 
@@ -31,7 +34,6 @@ class myArray {
 };
 
 const arr = new myArray(1, 4, [2, 4], { name: 'Ivan' });
-// arr.getLength();
 console.log(arr.length);
 arr.push('new element');
 console.log(arr.length);
@@ -39,4 +41,5 @@ console.log(arr);
 arr.pop();
 console.log(arr);
 console.log(arr.length);
+console.log(arr[3]);
 
