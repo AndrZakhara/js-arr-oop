@@ -24,6 +24,10 @@ class myArray {
     this.length++;
   }
 
+  pop() {
+    delete this.arguments[this.length-1];
+    this.length--;
+  }
 };
 
 const arr = new myArray(1, 4, [2, 4], { name: 'Ivan' });
@@ -32,4 +36,7 @@ console.log(arr.length);
 arr.push('new element');
 console.log(arr.length);
 console.log(arr);
+arr.pop();
+console.log(arr);
+console.log(arr.length);
 
