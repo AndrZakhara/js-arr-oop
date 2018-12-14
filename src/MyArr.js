@@ -1,15 +1,14 @@
 class myArray {
     constructor() {
       this.length = arguments.length;
-  
       for(let i = 0; i < this.length; i++) {
         this[i] = arguments[i];
-      };
+      }
     }
     
     push() {
-        console.log(arguments)
-      for(let i = 0; arguments.length; i++) {         
+        console.log(arguments);
+      for(let i = 0; i < arguments.length; i++) {
         this[this.length] = arguments[i];
         this.length++;  
       }        
@@ -22,6 +21,6 @@ class myArray {
       this.length--;
       return elem;
     }
-  };
+  }
 
 export default myArray;

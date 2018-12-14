@@ -3,22 +3,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-//   mode: 'development',
-  entry: {
-    app: './src/index.js',
-  },
-  devtool: 'inline-source-map',
-   devServer: {
-     contentBase: './dist'
-   },
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      title: 'Development'
-    })
-  ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  }
+    mode: 'development',
+    entry: {
+        app: './src/index.js',
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist'
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'MyArray'
+        })
+    ],
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
 };
