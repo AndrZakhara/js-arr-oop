@@ -23,3 +23,14 @@ console.log(arr);
 console.log(arr.length);
 // console.log(arr[3]);
 
+console.log('---test_04--- forEach');
+arr.forEach((elem, i, arr) => {
+
+  return elem
+});
+console.log(arr);
+arr.forEach((elem) => {
+  return elem + 100
+});
+console.log(arr);
+

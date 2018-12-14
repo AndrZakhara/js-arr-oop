@@ -21,6 +21,20 @@ class myArray {
       this.length--;
       return elem;
     }
+
+    forEach(callBack) {
+      // let callback = callBack.bind(callBack, this);
+      console.log('forEach');
+      callBack.apply(this);
+      console.log(callBack.arguments);
+
+      for(let i = 0; i < this.length; i++) {
+        // callBack(this[i], i, this);
+
+        this[i] = callBack(this[i], i, this);
+      }
+      console.log('forEach');
+    }
   }
 
 export default myArray;
