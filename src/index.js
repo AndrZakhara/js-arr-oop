@@ -1,5 +1,6 @@
 import myArray from './MyArr'
-const arr = new myArray(1, 4, [2, 4], { name: 'Ivan' });
+
+const arr = new myArray(1, 4, [2, 4], {name: 'Ivan'});
 
 console.log('---test_01---');
 console.log(arr[0] === 1); // true
@@ -12,7 +13,7 @@ console.log(arr.length);
 arr.push('new element 123');
 console.log(arr);
 console.log(arr.length);
-arr.push({ task: 'complete' }, 777);
+arr.push({task: 'complete'}, 777);
 console.log(arr);
 console.log(arr.length);
 
@@ -25,7 +26,6 @@ console.log(arr.length);
 
 console.log('---test_04--- forEach');
 arr.forEach((elem, i, arr) => {
-
   return elem
 });
 console.log(arr);
