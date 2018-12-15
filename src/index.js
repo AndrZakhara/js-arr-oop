@@ -34,11 +34,21 @@ arr.forEach((elem) => {
 });
 console.log(arr);
 
-console.log('---test_04--- map');
+console.log('---test_05--- map');
 const newArr = arr.map(i => i);
 console.log(newArr);
 
 newArr.pop();
 console.log(arr);
 console.log(newArr);
+
+console.log('---test_06--- reduce');
+let priceArray = new myArray(1,2, 3, 4);
+console.log(priceArray);
+const sum = priceArray.reduce((previousValue, currentValue) => {
+  return previousValue + currentValue
+}, 10);
+console.log(sum);
+
+
 

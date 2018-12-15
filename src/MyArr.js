@@ -46,6 +46,18 @@ class myArray {
 
     return newArray;
   }
+  reduce(callback, initialValue) {
+    let accumulator;
+    let previousValue;
+    initialValue !== undefined? accumulator = initialValue : accumulator = 0;
+    previousValue = accumulator;
+    callback.apply(this);
+
+    for(let i = 0; i < this.length; i++) {
+      previousValue = callback(previousValue, this[i], i, this);
+    }
+    return previousValue;
+  }
 }
 
 export default myArray;
