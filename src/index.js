@@ -34,3 +34,11 @@ arr.forEach((elem) => {
 });
 console.log(arr);
 
+console.log('---test_04--- map');
+const newArr = arr.map(i => i);
+console.log(newArr);
+
+newArr.pop();
+console.log(arr);
+console.log(newArr);
+
