@@ -50,5 +50,12 @@ const sum = priceArray.reduce((previousValue, currentValue) => {
 }, 10);
 console.log(sum);
 
+console.log('---test_07--- filter');
+const arrA = new myArray('spray', 'limit', 'elite', 'exuberant', 'destruction', 'present');
+const filteredArr = arrA.filter(elem => elem.length < 5);
+console.log(arrA);
+console.log(filteredArr);
+console.log(arrA);
+
 
 

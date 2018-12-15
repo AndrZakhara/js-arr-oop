@@ -1,6 +1,6 @@
 class myArray {
   constructor() {
-    this.length = arguments.length;
+    arguments !== undefined ? this.length = arguments.length : this.length = 0;
     for (let i = 0; i < this.length; i++) {
       this[i] = arguments[i];
     }
@@ -49,6 +49,7 @@ class myArray {
   reduce(callback, initialValue) {
     let accumulator;
     let previousValue;
+
     initialValue !== undefined? accumulator = initialValue : accumulator = 0;
     previousValue = accumulator;
     callback.apply(this);
@@ -56,7 +57,31 @@ class myArray {
     for(let i = 0; i < this.length; i++) {
       previousValue = callback(previousValue, this[i], i, this);
     }
+
     return previousValue;
+  }
+
+  filter(callback, thisArg) {
+    let context;
+    let newArray = new myArray();
+    let boolean = false;
+    let k = 0;
+
+    thisArg === undefined ? context = this : context = thisArg;
+    callback.apply(context);
+
+    for (let i = 0; i < this.length; i++) {
+      let element = this[i];
+      boolean = callback(element, i, this);
+
+      if(boolean) {
+        newArray[k] = this[i];
+        k++;
+        newArray.length++
+      }
+    }
+
+    return newArray;
   }
 }
 
