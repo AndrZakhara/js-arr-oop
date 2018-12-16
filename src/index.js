@@ -60,8 +60,12 @@ console.log(arrA);
 console.log('---test_08--- toString');
 arrA.push([1, 2], {a: 'element'});
 const string = arrA.toString();
-
 console.log(string);
 
+console.log('---test_09--- from');
+let arrB = myArray.from([1, 2, 3], x => x + x);
+console.log(arrB);
+let arrC = myArray.from({length: 5}, (v, i) => i);
+console.log(arrC);
 
 

@@ -26,11 +26,10 @@ class myArray {
 
   forEach(callBack, thisArg) {
     let context;
+
     thisArg === undefined ? context = this : context = thisArg;
-    // callBack.apply(context);
 
     for (let i = 0; i < this.length; i++) {
-      // this[i] = callBack(this[i], i, this);
       this[i] = callBack.call(context, this[i], i, this);
     }
   }
@@ -90,21 +89,34 @@ class myArray {
     let stringResult = "";
 
     for (let i = 0; i < this.length; i++) {
-
       (i !== this.length - 1) ? stringResult += this[i] + "," : stringResult += this[i];
     }
 
     return stringResult;
   }
 
-  static from() {
-    // let newArray = new MyArray(0);
-    //
-    // for (let i = 0; i < this.length; i++) {
-    //   newArray.push(this[i]);
-    // }
-    //
-    // return newArray;
+  static from(arrayLike, callback, thisArg) {
+    let context,
+        newArray = new myArray();
+
+    thisArg === undefined ? context = arrayLike : context = thisArg;
+
+    if(callback) {
+
+      for (let i = 0; i < arrayLike.length; i++) {
+        newArray[i] = callback.call(context, arrayLike[i], i, arrayLike);
+        newArray.length++;
+      }
+    }
+    else {
+
+      for (let i = 0; i < arrayLike.length; i++) {
+        newArray[i] = arrayLike[i];
+        newArray.length++;
+      }
+    }
+
+    return newArray;
   }
 }
 
