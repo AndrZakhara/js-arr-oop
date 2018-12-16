@@ -102,14 +102,12 @@ class myArray {
     thisArg === undefined ? context = arrayLike : context = thisArg;
 
     if(callback) {
-
       for (let i = 0; i < arrayLike.length; i++) {
         newArray[i] = callback.call(context, arrayLike[i], i, arrayLike);
         newArray.length++;
       }
     }
     else {
-
       for (let i = 0; i < arrayLike.length; i++) {
         newArray[i] = arrayLike[i];
         newArray.length++;
