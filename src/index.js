@@ -57,5 +57,11 @@ console.log(arrA);
 console.log(filteredArr);
 console.log(arrA);
 
+console.log('---test_08--- toString');
+arrA.push([1, 2], {a: 'element'});
+const string = arrA.toString();
+
+console.log(string);
+
 
 

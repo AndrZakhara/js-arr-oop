@@ -49,6 +49,7 @@ class myArray {
 
     return newArray;
   }
+
   reduce(callback, initialValue) {
     let accumulator;
     let previousValue;
@@ -83,6 +84,27 @@ class myArray {
     }
 
     return newArray;
+  }
+
+  toString() {
+    let stringResult = "";
+
+    for (let i = 0; i < this.length; i++) {
+
+      (i !== this.length - 1) ? stringResult += this[i] + "," : stringResult += this[i];
+    }
+
+    return stringResult;
+  }
+
+  static from() {
+    // let newArray = new MyArray(0);
+    //
+    // for (let i = 0; i < this.length; i++) {
+    //   newArray.push(this[i]);
+    // }
+    //
+    // return newArray;
   }
 }
 
