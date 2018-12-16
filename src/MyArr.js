@@ -7,6 +7,28 @@ class myArray {
     }
   }
 
+  static from(arrayLike, callback, thisArg) {
+    let context,
+      newArray = new myArray();
+
+    thisArg === undefined ? context = arrayLike : context = thisArg;
+
+    if(callback) {
+      for (let i = 0; i < arrayLike.length; i++) {
+        newArray[i] = callback.call(context, arrayLike[i], i, arrayLike);
+        newArray.length++;
+      }
+    }
+    else {
+      for (let i = 0; i < arrayLike.length; i++) {
+        newArray[i] = arrayLike[i];
+        newArray.length++;
+      }
+    }
+
+    return newArray;
+  }
+
   push() {
     for (let i = 0; i < arguments.length; i++) {
       this[this.length] = arguments[i];
@@ -95,26 +117,37 @@ class myArray {
     return stringResult;
   }
 
-  static from(arrayLike, callback, thisArg) {
-    let context,
-        newArray = new myArray();
+  sort(compareFunction) {
+    if (compareFunction) {
+      let element;
 
-    thisArg === undefined ? context = arrayLike : context = thisArg;
-
-    if(callback) {
-      for (let i = 0; i < arrayLike.length; i++) {
-        newArray[i] = callback.call(context, arrayLike[i], i, arrayLike);
-        newArray.length++;
+      for (let j = this.length; j > 1; j--) {
+        for (let i = 0; i < this.length-1; i++) {
+          if (compareFunction(this[i], this[i + 1]) > 0) {
+            element = this[i];
+            this[i] = this[i + 1];
+            this[i + 1] = element;
+          }
+        }
       }
+
+      return this;
     }
     else {
-      for (let i = 0; i < arrayLike.length; i++) {
-        newArray[i] = arrayLike[i];
-        newArray.length++;
-      }
-    }
+      for (let i = 1; i < this.length; i++) {
+        let currentElement = this[i];
+        let j = i;
 
-    return newArray;
+        while (j > 0 && String(this[j - 1]) > String(currentElement)) {
+          this[j] = this[j - 1];
+          j--;
+        }
+
+        this[j] = currentElement;
+      }
+
+      return this;
+    }
   }
 }
 

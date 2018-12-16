@@ -68,4 +68,10 @@ console.log(arrB);
 let arrC = myArray.from({length: 5}, (v, i) => i);
 console.log(arrC);
 
+console.log('---test_10--- sort');
+let scores = new myArray(1, 2, 10, 21, 2, 'stone', 'apple', 'aaa');
+console.log(scores.sort()); // [1, 10, 2, 21]
+console.log(scores.sort(function(a, b) {
+  return a - b;
+}));
 
