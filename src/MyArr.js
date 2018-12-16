@@ -1,6 +1,7 @@
 class myArray {
   constructor() {
     arguments !== undefined ? this.length = arguments.length : this.length = 0;
+
     for (let i = 0; i < this.length; i++) {
       this[i] = arguments[i];
     }
@@ -15,20 +16,22 @@ class myArray {
 
   pop() {
     let index = this.length - 1;
-    let elem = this[index];
+    let element = this[index];
+
     delete this[index];
     this.length--;
-    return elem;
+
+    return element;
   }
 
   forEach(callBack, thisArg) {
     let context;
     thisArg === undefined ? context = this : context = thisArg;
-    callBack.apply(context);
+    // callBack.apply(context);
 
     for (let i = 0; i < this.length; i++) {
-      // this[i] = callBack.call(context, this[i], i, this);
-      this[i] = callBack(this[i], i, this);
+      // this[i] = callBack(this[i], i, this);
+      this[i] = callBack.call(context, this[i], i, this);
     }
   }
 
