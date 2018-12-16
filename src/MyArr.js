@@ -62,17 +62,15 @@ class myArray {
   }
 
   filter(callback, thisArg) {
-    let context;
-    let newArray = new myArray();
-    let boolean = false;
-    let k = 0;
+    let context,
+        newArray = new myArray(),
+        boolean,
+        k = 0;
 
     thisArg === undefined ? context = this : context = thisArg;
-    callback.apply(context);
 
     for (let i = 0; i < this.length; i++) {
-      let element = this[i];
-      boolean = callback(element, i, this);
+      boolean = callback.call(context, this[i], i, this);
 
       if(boolean) {
         newArray[k] = this[i];
