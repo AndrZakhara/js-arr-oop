@@ -1,4 +1,4 @@
-class myArray {
+class MyArray {
   constructor() {
     arguments !== undefined ? this.length = arguments.length : this.length = 0;
 
@@ -9,7 +9,7 @@ class myArray {
 
   static from(arrayLike, callback, thisArg) {
     let context,
-      newArray = new myArray();
+      newArray = new MyArray();
 
     thisArg === undefined ? context = arrayLike : context = thisArg;
 
@@ -58,7 +58,7 @@ class myArray {
 
   map(callback, thisArg) {
     let context;
-    let newArray = new myArray();
+    let newArray = new MyArray();
 
     thisArg === undefined ? context = this : context = thisArg;
     callback.apply(context);
@@ -88,7 +88,7 @@ class myArray {
 
   filter(callback, thisArg) {
     let context,
-        newArray = new myArray(),
+        newArray = new MyArray(),
         boolean,
         k = 0;
 
@@ -151,4 +151,5 @@ class myArray {
   }
 }
 
-export default myArray;
+module.exports = MyArray;
+// export default MyArray;

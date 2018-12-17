@@ -1,6 +1,6 @@
-import myArray from './MyArr'
+import MyArray from './MyArr'
 
-const arr = new myArray(1, 4, [2, 4], {name: 'Ivan'});
+const arr = new MyArray(1, 4, [2, 4], {name: 'Ivan'});
 
 console.log('---test_01---');
 console.log(arr[0] === 1); // true
@@ -43,7 +43,7 @@ console.log(arr);
 console.log(newArr);
 
 console.log('---test_06--- reduce');
-let priceArray = new myArray(1,2, 3, 4);
+let priceArray = new MyArray(1,2, 3, 4);
 console.log(priceArray);
 const sum = priceArray.reduce((previousValue, currentValue) => {
   return previousValue + currentValue
@@ -51,7 +51,7 @@ const sum = priceArray.reduce((previousValue, currentValue) => {
 console.log(sum);
 
 console.log('---test_07--- filter');
-const arrA = new myArray(1, 'spray', 'limit', 'elite', 'exuberant', 'destruction', 'present');
+const arrA = new MyArray(1, 'spray', 'limit', 'elite', 'exuberant', 'destruction', 'present');
 const filteredArr = arrA.filter(elem => elem.length > 5);
 console.log(arrA);
 console.log(filteredArr);
@@ -63,13 +63,13 @@ const string = arrA.toString();
 console.log(string);
 
 console.log('---test_09--- from');
-let arrB = myArray.from([1, 2, 3], x => x + x);
+let arrB = MyArray.from([1, 2, 3], x => x + x);
 console.log(arrB);
-let arrC = myArray.from({length: 5}, (v, i) => i);
+let arrC = MyArray.from({length: 5}, (v, i) => i);
 console.log(arrC);
 
 console.log('---test_10--- sort');
-let scores = new myArray(1, 2, 10, 21, 2, 'stone', 'apple', 'aaa');
+let scores = new MyArray(1, 2, 10, 21, 2, 'stone', 'apple', 'aaa');
 console.log(scores.sort()); // [1, 10, 2, 21]
 console.log(scores.sort(function(a, b) {
   return a - b;
